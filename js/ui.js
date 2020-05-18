@@ -32,7 +32,16 @@ function showAuthenticatedNav(account, view) {
     calendarLink.setAttribute('onclick', 'getEvents();');
     calendarNav.appendChild(calendarLink);
 
+    var arNav = createElement('li', 'nav-item');
+
+    var arpage = createElement('a',
+      `btn btn-link nav-link`,
+      'AR page');
+      arpage.setAttribute('href', './page.html');
+      arNav.appendChild(arpage);
+
     authenticatedNav.appendChild(calendarNav);
+    authenticatedNav.appendChild(arNav);
   }
 }
 
