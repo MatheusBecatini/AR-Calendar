@@ -27,3 +27,20 @@ async function getEvents() {
       });
     }
   }
+
+async function obter() {
+    try {
+      var data = new Date
+      let events = await graphClient
+          .api(`/me/calendarview?startdatetime=${data.getFullYear()}-${data.getMonth()+1}-${data.getDate()}T00:01:00Z&enddatetime=${data.getFullYear()}-${data.getMonth()+1}-${data.getDate()+1}T00:00:00Z`)
+          .select('subject,organizer,start,end')
+          .orderby('start/dateTime')
+          .get();
+      return events
+    } catch (error) {
+      return {
+        message: 'Erro ao obter eventos',
+        debug: error
+      }
+    }
+  }

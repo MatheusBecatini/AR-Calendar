@@ -36,8 +36,8 @@ function showAuthenticatedNav(account, view) {
 
     var arpage = createElement('a',
       `btn btn-link nav-link`,
-      'AR page');
-      arpage.setAttribute('href', './page.html');
+      'Ver em RA');
+      arpage.setAttribute('href', './app.html');
       arNav.appendChild(arpage);
 
     authenticatedNav.appendChild(calendarNav);

@@ -38,18 +38,45 @@ const apresentarTitulos = () => {
 apresentarTitulos()
 
 //Criando o texto 
-const evento = document.createElement('a-text')
-criarText(evento, `-1.8 -1.91 0.1`, `dia do encontro semanal`)
-tela.appendChild(evento)
 
-const horario = document.createElement('a-text')
-criarText(horario, `0 -1.91 0.1`, `14:00 - 18:00`)
-tela.appendChild(horario)
+// const evento = document.createElement('a-text')
+// criarText(evento, `-1.8 -1.91 0.1`, `dia do encontro semanal`)
+// tela.appendChild(evento)
 
-const organizador = document.createElement('a-text')
-criarText(organizador, `0.9 -1.91 0.1`, `Matheus Becatini`)
-tela.appendChild(organizador)
+// const horario = document.createElement('a-text')
+// criarText(horario, `0 -1.91 0.1`, `14:00 - 18:00`)
+// tela.appendChild(horario)
 
+// const organizador = document.createElement('a-text')
+// criarText(organizador, `0.9 -1.91 0.1`, `Matheus Becatini`)
+// tela.appendChild(organizador)
+
+
+async function mostrar () {
+    const info = await this.obter()
+    console.log(info)
+    criarEventos(info)
+}
+mostrar()
+
+
+function criarEventos (events){
+    for (const event of events.value) {
+        const evento = document.createElement('a-text')
+        criarText(evento, `-1.8 -1.91 0.1`,  event.subject)
+        tela.appendChild(evento)
+        
+        const horario = document.createElement('a-text')
+        criarText(horario, `0 -1.91 0.1`,  moment.utc(event.start.dateTime).local().format('H:mm')
+        + ' - ' 
+        + moment.utc(event.end.dateTime).local().format('H:mm'))
+        tela.appendChild(horario)
+        
+        const organizador = document.createElement('a-text')
+        criarText(organizador, `0.9 -1.91 0.1`, event.organizer.emailAddress.name)
+        tela.appendChild(organizador)
+    }
+}
 
 
 }
