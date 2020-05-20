@@ -17,41 +17,39 @@ const criarText = (elemento, pos, text) => {
     elemento.setAttribute('value', text)
 }
 
+const apresentarTitulos = () => {
+    const eventoTitle = document.createElement('a-text')
+    criarText(eventoTitle, `-1.8 -1.91 -0.2`, `Evento`)
+    tela.appendChild(eventoTitle)
+
+    const horarioTitle = document.createElement('a-text')
+    criarText(horarioTitle, `0 -1.91 -0.2`, `Horario`)
+    tela.appendChild(horarioTitle)
+
+    const organizadorTitle = document.createElement('a-text')
+    criarText(organizadorTitle, `0.9 -1.91 -0.2`, `Organizador`)
+    tela.appendChild(organizadorTitle)
+}
+
 // Position = 'X Z Y' 
 // - x = esquerda
 // - y = subir
 
-//Criando o texto 
-const eventoTitle = document.createElement('a-text')
-criarText(eventoTitle, `-1.8 -1.91 -0.2`, `Evento`)
+apresentarTitulos()
 
+//Criando o texto 
 const evento = document.createElement('a-text')
 criarText(evento, `-1.8 -1.91 0.1`, `dia do encontro semanal`)
-
-
-const horarioTitle = document.createElement('a-text')
-criarText(horarioTitle, `0 -1.91 -0.2`, `Horario`)
+tela.appendChild(evento)
 
 const horario = document.createElement('a-text')
 criarText(horario, `0 -1.91 0.1`, `14:00 - 18:00`)
-
-
-
-const organizadorTitle = document.createElement('a-text')
-criarText(organizadorTitle, `0.9 -1.91 -0.2`, `Organizador`)
+tela.appendChild(horario)
 
 const organizador = document.createElement('a-text')
 criarText(organizador, `0.9 -1.91 0.1`, `Matheus Becatini`)
-
-
-tela.appendChild(eventoTitle)
-tela.appendChild(horarioTitle)
-tela.appendChild(organizadorTitle)
-
-
-tela.appendChild(evento)
-tela.appendChild(horario)
 tela.appendChild(organizador)
+
 
 
 }
