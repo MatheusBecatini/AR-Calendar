@@ -26,14 +26,20 @@ window.onload = function() {
     const apresentarTitulos = () => {
         const eventoTitle = document.createElement('a-text')
         criarText(eventoTitle, `-2.1 ${eixoZ} -0.4`, `Evento`)
+        eventoTitle.setAttribute('width', 4)
+        eventoTitle.setAttribute('color', '#EBF5FB')
         tela.appendChild(eventoTitle)
 
         const horarioTitle = document.createElement('a-text')
-        criarText(horarioTitle, `0 ${eixoZ} -0.4`, `Horario`)
+        criarText(horarioTitle, `0 ${eixoZ} -0.4`, `Horário`)
+        horarioTitle.setAttribute('width', 4)
+        horarioTitle.setAttribute('color', '#EBF5FB')
         tela.appendChild(horarioTitle)
 
         const organizadorTitle = document.createElement('a-text')
         criarText(organizadorTitle, `0.9 ${eixoZ} -0.4`, `Organizador`)
+        organizadorTitle.setAttribute('width', 4)
+        organizadorTitle.setAttribute('color', '#EBF5FB')
         tela.appendChild(organizadorTitle)
     }
     apresentarTitulos()
