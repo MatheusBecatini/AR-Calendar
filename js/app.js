@@ -19,6 +19,8 @@ window.onload = function() {
         elemento.setAttribute('align', alinhamento)
         elemento.setAttribute('position', pos)
         elemento.setAttribute('value', text)
+        elemento.setAttribute('font', "./assets/font/custom-msdf.json")
+        elemento.setAttribute('negate', 'false')
     }
 
     const apresentarTitulos = () => {
