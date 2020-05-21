@@ -3,7 +3,7 @@ const authenticatedNav = document.getElementById('authenticated-nav');
 const accountNav = document.getElementById('account-nav');
 const mainContainer = document.getElementById('main-container');
 
-const Views = { error: 1, home: 2, calendar: 3 };
+const Views = { error: 1, home: 2, calendar: 3, marker: 4 };
 
 //Facilitar criar um novo elemento
 function createElement(type, className, text) {
@@ -25,15 +25,20 @@ function showAuthenticatedNav(account, view) {
   if (account) {
     // Add Calendar link
     var calendarNav = createElement('li', 'nav-item');
-
     var calendarLink = createElement('button',
       `btn btn-link nav-link${view === Views.calendar ? ' active' : '' }`,
       'Calendário');
     calendarLink.setAttribute('onclick', 'getEvents();');
     calendarNav.appendChild(calendarLink);
 
-    var arNav = createElement('li', 'nav-item');
+    var markerNav = createElement('li', 'nav-item');
+    var markerLink = createElement('a',
+      `btn btn-link nav-link${view === Views.marker ? ' active' : '' }`,
+      'QR Code e Marcador');
+    markerLink.setAttribute('onclick', `showMarker();`);
+    markerNav.appendChild(markerLink);
 
+    var arNav = createElement('li', 'nav-item');
     var arpage = createElement('a',
       `btn btn-link nav-link`,
       'Ver em RA');
@@ -42,6 +47,7 @@ function showAuthenticatedNav(account, view) {
 
     authenticatedNav.appendChild(calendarNav);
     authenticatedNav.appendChild(arNav);
+    authenticatedNav.appendChild(markerNav);
   }
 }
 
@@ -92,11 +98,11 @@ function showWelcomeMessage(account) {
   // Create jumbotron
   var jumbotron = createElement('div', 'jumbotron');
 
-  var heading = createElement('h1', null, 'API Microsoft Graph - Calendário');
+  var heading = createElement('h1', null, 'Microsoft Graph AR Calendar');
   jumbotron.appendChild(heading);
 
   var lead = createElement('p', 'lead',
-    'Testes com a funcionalidade de obter eventos através da API oferecida pela Microsoft');
+    'Veja seus eventos do outlook em realidade aumentada!');
   jumbotron.appendChild(lead);
 
   if (account) {
@@ -110,7 +116,7 @@ function showWelcomeMessage(account) {
   } else {
     // Show a sign in button in the jumbotron
     var signInButton = createElement('button', 'btn btn-primary btn-large',
-      'Click aqui para entrar');
+      'Login');
     signInButton.setAttribute('onclick', 'signIn();')
     jumbotron.appendChild(signInButton);
   }
@@ -197,6 +203,15 @@ function showCalendar(events) {
   
     mainContainer.innerHTML = '';
     mainContainer.appendChild(div);
+  }
+
+  function showMarker() {
+    var foto = document.createElement('img')
+    foto.setAttribute('src', '../assets/marker.png')
+    foto.setAttribute('style', 'width: 60%')
+  
+    mainContainer.innerHTML = '';
+    mainContainer.appendChild(foto);
   }
 
 function updatePage(account, view, data) {
