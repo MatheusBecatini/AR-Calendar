@@ -207,7 +207,7 @@ function showCalendar(events) {
 
   function showMarker() {
     var foto = document.createElement('img')
-    foto.setAttribute('src', '../assets/marker.png')
+    foto.setAttribute('src', 'https://github.com/MatheusBecatini/AR-Calendar/blob/master/assets/marker.png?raw=true')
     foto.setAttribute('style', 'width: 60%')
   
     mainContainer.innerHTML = '';
