@@ -1,6 +1,6 @@
 window.onload = function() {
     const tela = document.querySelector("a-marker");
-    const eixoZ = 0.01
+    const eixoZ = 0.05
     const eixoY = 0
 
     // Position = 'X Z Y' 
@@ -74,7 +74,7 @@ window.onload = function() {
             criarText(organizador, `0.6 ${eixoZ} ${posVertical}`, event.organizer.emailAddress.name.substring(0, 17))
             tela.appendChild(organizador)
 
-            posVertical += 0.1
+            posVertical += 0.15
         }
     }
 }
