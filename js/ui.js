@@ -33,9 +33,9 @@ function showAuthenticatedNav(account, view) {
 
     var markerNav = createElement('li', 'nav-item');
     var markerLink = createElement('a',
-      `btn btn-link nav-link${view === Views.marker ? ' active' : '' }`,
+      `btn btn-link nav-link`,
       'QR Code e Marcador');
-    markerLink.setAttribute('onclick', `showMarker();`);
+    markerLink.setAttribute('href', `marcador.html`);
     markerNav.appendChild(markerLink);
 
     var arNav = createElement('li', 'nav-item');
@@ -203,15 +203,6 @@ function showCalendar(events) {
   
     mainContainer.innerHTML = '';
     mainContainer.appendChild(div);
-  }
-
-  function showMarker() {
-    var foto = document.createElement('img')
-    foto.setAttribute('src', 'https://github.com/MatheusBecatini/AR-Calendar/blob/master/assets/marker.png?raw=true')
-    foto.setAttribute('style', 'width: 60%')
-  
-    mainContainer.innerHTML = '';
-    mainContainer.appendChild(foto);
   }
 
 function updatePage(account, view, data) {
