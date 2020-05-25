@@ -1,6 +1,7 @@
 window.onload = function() {
     const tela = document.querySelector("a-marker");
-    const eixoZ = -2.8
+    const eixoZ = 0.01
+    const eixoY = 0
 
     // Position = 'X Z Y' 
     // - x = esquerda
@@ -8,9 +9,9 @@ window.onload = function() {
 
     const criarText = (elemento, pos, text) => {
         //Atributos do a-text
-        const escala = '1 1 1'
+        const escala = '0.5 0.5 0.5'
         const alinhamento = 'left'
-        const largura = '3'
+        const largura = '4'
         const rotacao = '270 0 0'
 
         elemento.setAttribute('scale', escala)
@@ -25,19 +26,19 @@ window.onload = function() {
 
     const apresentarTitulos = () => {
         const eventoTitle = document.createElement('a-text')
-        criarText(eventoTitle, `-2.1 ${eixoZ} -0.4`, `Evento`)
+        criarText(eventoTitle, `-1.29 ${eixoZ} ${eixoY}`, `Evento`)
         eventoTitle.setAttribute('width', 4)
         eventoTitle.setAttribute('color', '#EBF5FB')
         tela.appendChild(eventoTitle)
 
         const horarioTitle = document.createElement('a-text')
-        criarText(horarioTitle, `0 ${eixoZ} -0.4`, `Horário`)
+        criarText(horarioTitle, `0 ${eixoZ} ${eixoY}`, `Horário`)
         horarioTitle.setAttribute('width', 4)
         horarioTitle.setAttribute('color', '#EBF5FB')
         tela.appendChild(horarioTitle)
 
         const organizadorTitle = document.createElement('a-text')
-        criarText(organizadorTitle, `0.9 ${eixoZ} -0.4`, `Organizador`)
+        criarText(organizadorTitle, `0.6 ${eixoZ} ${eixoY}`, `Organizador`)
         organizadorTitle.setAttribute('width', 4)
         organizadorTitle.setAttribute('color', '#EBF5FB')
         tela.appendChild(organizadorTitle)
@@ -57,23 +58,23 @@ window.onload = function() {
 
 
     function criarEventos (events){
-        let pos = -0.1
+        let posVertical = eixoY + 0.15
         for (const event of events.value) {
             const evento = document.createElement('a-text')
-            criarText(evento, `-2.1 ${eixoZ} ${pos}`,  event.subject.substring(0, 31))
+            criarText(evento, `-1.4 ${eixoZ} ${posVertical}`,  event.subject.substring(0, 31))
             tela.appendChild(evento)
             
             const horario = document.createElement('a-text')
-            criarText(horario, `0 ${eixoZ} ${pos}`,  moment.utc(event.start.dateTime).local().format('H:mm')
+            criarText(horario, `-0.05 ${eixoZ} ${posVertical}`,  moment.utc(event.start.dateTime).local().format('H:mm')
             + ' - ' 
             + moment.utc(event.end.dateTime).local().format('H:mm'))
             tela.appendChild(horario)
             
             const organizador = document.createElement('a-text')
-            criarText(organizador, `0.9 ${eixoZ} ${pos}`, event.organizer.emailAddress.name.substring(0, 17))
+            criarText(organizador, `0.6 ${eixoZ} ${posVertical}`, event.organizer.emailAddress.name.substring(0, 17))
             tela.appendChild(organizador)
 
-            pos += 0.2
+            posVertical += 0.1
         }
     }
 }
