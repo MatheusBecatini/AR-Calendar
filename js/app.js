@@ -74,7 +74,7 @@ window.onload = function() {
             criarText(organizador, `0.6 ${eixoZ} ${posVertical}`, event.organizer.emailAddress.name.substring(0, 17))
             tela.appendChild(organizador)
 
-            posVertical += 0.15
+            posVertical += 0.16
         }
     }
 }
