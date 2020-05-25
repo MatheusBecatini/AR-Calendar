@@ -1,7 +1,7 @@
 window.onload = function() {
     const tela = document.querySelector("a-marker");
-    const eixoZ = 0.05
-    const eixoY = 0
+    const eixoZ = 0.03
+    const eixoY = -0.25
 
     // Position = 'X Z Y' 
     // - x = esquerda
@@ -27,19 +27,19 @@ window.onload = function() {
     const apresentarTitulos = () => {
         const eventoTitle = document.createElement('a-text')
         criarText(eventoTitle, `-1.29 ${eixoZ} ${eixoY}`, `Evento`)
-        eventoTitle.setAttribute('width', 4)
+        eventoTitle.setAttribute('width', 5)
         eventoTitle.setAttribute('color', '#EBF5FB')
         tela.appendChild(eventoTitle)
 
         const horarioTitle = document.createElement('a-text')
         criarText(horarioTitle, `0 ${eixoZ} ${eixoY}`, `Horário`)
-        horarioTitle.setAttribute('width', 4)
+        horarioTitle.setAttribute('width', 5)
         horarioTitle.setAttribute('color', '#EBF5FB')
         tela.appendChild(horarioTitle)
 
         const organizadorTitle = document.createElement('a-text')
         criarText(organizadorTitle, `0.6 ${eixoZ} ${eixoY}`, `Organizador`)
-        organizadorTitle.setAttribute('width', 4)
+        organizadorTitle.setAttribute('width', 5)
         organizadorTitle.setAttribute('color', '#EBF5FB')
         tela.appendChild(organizadorTitle)
     }
@@ -74,7 +74,7 @@ window.onload = function() {
             criarText(organizador, `0.6 ${eixoZ} ${posVertical}`, event.organizer.emailAddress.name.substring(0, 17))
             tela.appendChild(organizador)
 
-            posVertical += 0.16
+            posVertical += 0.12
         }
     }
 }
