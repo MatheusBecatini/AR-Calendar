@@ -31,13 +31,6 @@ function showAuthenticatedNav(account, view) {
     calendarLink.setAttribute('onclick', 'getEvents();');
     calendarNav.appendChild(calendarLink);
 
-    var markerNav = createElement('li', 'nav-item');
-    var markerLink = createElement('a',
-      `btn btn-link nav-link`,
-      'QR Code e Marcador');
-    markerLink.setAttribute('href', `marcador.html`);
-    markerNav.appendChild(markerLink);
-
     var arNav = createElement('li', 'nav-item');
     var arpage = createElement('a',
       `btn btn-link nav-link`,
@@ -45,9 +38,25 @@ function showAuthenticatedNav(account, view) {
       arpage.setAttribute('href', './app.html');
       arNav.appendChild(arpage);
 
+    var markerNav = createElement('li', 'nav-item');
+    var markerLink = createElement('a',
+      `btn btn-link nav-link`,
+      'QR Code e Marcador');
+    markerLink.setAttribute('href', `marcador.html`);
+    markerNav.appendChild(markerLink);
+
+    var customMarkerNav = createElement('li', 'nav-item');
+    var customMarkerLink = createElement('a',
+      `btn btn-link nav-link`,
+      'Marcador personalizado');
+    customMarkerLink.setAttribute('href', `customMarker.html`);
+    customMarkerNav.appendChild(customMarkerLink);
+
+
     authenticatedNav.appendChild(calendarNav);
     authenticatedNav.appendChild(arNav);
     authenticatedNav.appendChild(markerNav);
+    authenticatedNav.appendChild(customMarkerNav);
   }
 }
 
